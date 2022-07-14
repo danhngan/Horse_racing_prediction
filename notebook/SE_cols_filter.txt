@@ -1,0 +1,36 @@
+------------
+2022-07-14
+filename is an object column but has 143 values
+Excepted column line_no
+head$RecordSpec only has 1 value
+head$DataKubun only has 1 value
+Excepted column head$MakeDate$Year
+Excepted column head$MakeDate$Month
+Excepted column head$MakeDate$Day
+Excepted column id$Kaiji
+Excepted column id$Nichiji
+Bamei is an object column but has 54552 values
+ChokyosiRyakusyo is an object column but has 587 values
+BanusiName is an object column but has 2776 values
+Fukusyoku is an object column but has 2423 values
+reserved1 only has 1 value
+Excepted column FutanBefore
+reserved2 only has 1 value
+Excepted column KisyuCodeBefore
+KisyuRyakusyo is an object column but has 470 values
+Excepted column KisyuRyakusyoBefore
+Excepted column MinaraiCDBefore
+BaTaijyu is an object column but has 288 values
+ChakusaCDPP only has 1 value
+reserved3 only has 1 value
+reserved4 only has 1 value
+Excepted column HaronTimeL4
+Excepted column HaronTimeL3
+ChakuUmaInfo$1$Bamei is an object column but has 22271 values
+ChakuUmaInfo$2$Bamei is an object column but has 104 values
+ChakuUmaInfo$3$KettoNum only has 1 value
+ChakuUmaInfo$3$Bamei only has 1 value
+Excepted column TimeDiff
+DMKubun only has 1 value
+Excepted column DMTime
+crlf only has 1 value

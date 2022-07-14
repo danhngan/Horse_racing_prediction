@@ -61,7 +61,7 @@ Sơ lược về data của chúng ta:
 Trước khi đi vào phân tích data, chúng ta sẽ loại bỏ một số thuộc tính không hữu ích, đồng thời tổng hợp data từ các file dữ liệu để thuận tiện hơn sau này
 
 Xem notebook `firstlooking.ipynb` cho phần này. Tiêu chí loại ban đầu (Chưa chú trọng đến mức độ hiệu quả cho việc dự đoán):
-- Data có kiểu dữ liệu object trong pandas (kí tự) mà có quá nhiều giá trị (ngoại trừ thông tin định danh jockey và training master)
+- Data có kiểu dữ liệu object trong pandas (kí tự) mà có quá nhiều giá trị (ngoại trừ thông tin định danh jockey và training master phục vụ cho việc phân tích theo cấp độ từng con ngựa hoặc từng jockey)
 - Các trường dữ liệu chỉ có một giá trị (không có tính phân loại)
 - Trường có ý nghĩa trùng lặp
 - Các trường chỉ có sau khi đã bắt đầu cuộc đua (trừ các trường mục tiêu là thứ tự xếp hạng và thời gian)

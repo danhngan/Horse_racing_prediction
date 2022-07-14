@@ -1,0 +1,69 @@
+------------
+2022-07-14
+filename is an object column but has 130 values
+Excepted column line_no
+head$RecordSpec only has 1 value
+head$DataKubun only has 1 value
+Excepted column head$MakeDate$Year
+Excepted column head$MakeDate$Month
+Excepted column head$MakeDate$Day
+Excepted column id$Kaiji
+Excepted column id$Nichiji
+RaceInfo$Hondai is an object column but has 1482 values
+RaceInfo$Fukudai is an object column but has 118 values
+RaceInfo$HondaiEng is an object column but has 1498 values
+RaceInfo$FukudaiEng is an object column but has 106 values
+RaceInfo$Ryakusyo10 is an object column but has 1445 values
+RaceInfo$Ryakusyo6 is an object column but has 1428 values
+RaceInfo$Ryakusyo3 is an object column but has 1410 values
+Excepted column GradeCDBefore
+JyokenName only has 1 value
+Excepted column KyoriBefore
+Excepted column TrackCDBefore
+Excepted column CourseKubunCDBefore
+Honsyokin$7 only has 1 value
+Excepted column HonsyokinBefore$1
+Excepted column HonsyokinBefore$2
+Excepted column HonsyokinBefore$3
+Excepted column HonsyokinBefore$4
+Excepted column HonsyokinBefore$5
+Excepted column FukasyokinBefore$1
+Excepted column FukasyokinBefore$2
+Excepted column FukasyokinBefore$3
+Excepted column HassoTime
+Excepted column HassoTimeBefore
+Excepted column LapTime$1
+Excepted column LapTime$2
+Excepted column LapTime$3
+Excepted column LapTime$4
+Excepted column LapTime$5
+Excepted column LapTime$6
+Excepted column LapTime$7
+Excepted column LapTime$8
+Excepted column LapTime$9
+Excepted column LapTime$10
+Excepted column LapTime$11
+Excepted column LapTime$12
+Excepted column LapTime$13
+Excepted column LapTime$14
+Excepted column LapTime$15
+Excepted column LapTime$16
+Excepted column LapTime$17
+Excepted column LapTime$18
+Excepted column LapTime$19
+Excepted column LapTime$20
+Excepted column LapTime$21
+Excepted column LapTime$22
+Excepted column LapTime$23
+Excepted column LapTime$24
+Excepted column LapTime$25
+Excepted column SyogaiMileTime
+Excepted column HaronTimeS3
+Excepted column HaronTimeS4
+Excepted column HaronTimeL3
+Excepted column HaronTimeL4
+CornerInfo$1$Jyuni is an object column but has 35648 values
+CornerInfo$2$Jyuni is an object column but has 35648 values
+CornerInfo$3$Jyuni is an object column but has 17715 values
+CornerInfo$4$Jyuni is an object column but has 15777 values
+crlf only has 1 value
