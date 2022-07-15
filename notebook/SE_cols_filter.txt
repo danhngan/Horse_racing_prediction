@@ -20,15 +20,21 @@ Excepted column KisyuCodeBefore
 KisyuRyakusyo is an object column but has 470 values
 Excepted column KisyuRyakusyoBefore
 Excepted column MinaraiCDBefore
-BaTaijyu is an object column but has 288 values
 ChakusaCDPP only has 1 value
+Excepted column Jyuni1c
+Excepted column Jyuni2c
+Excepted column Jyuni3c
+Excepted column Jyuni4c
+Excepted column Odds
 reserved3 only has 1 value
 reserved4 only has 1 value
 Excepted column HaronTimeL4
 Excepted column HaronTimeL3
+Excepted column ChakuUmaInfo$1$KettoNum
 ChakuUmaInfo$1$Bamei is an object column but has 22271 values
+Excepted column ChakuUmaInfo$2$KettoNum
 ChakuUmaInfo$2$Bamei is an object column but has 104 values
-ChakuUmaInfo$3$KettoNum only has 1 value
+Excepted column ChakuUmaInfo$3$KettoNum
 ChakuUmaInfo$3$Bamei only has 1 value
 Excepted column TimeDiff
 DMKubun only has 1 value

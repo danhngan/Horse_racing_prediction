@@ -62,8 +62,16 @@ Excepted column HaronTimeS3
 Excepted column HaronTimeS4
 Excepted column HaronTimeL3
 Excepted column HaronTimeL4
-CornerInfo$1$Jyuni is an object column but has 35648 values
-CornerInfo$2$Jyuni is an object column but has 35648 values
-CornerInfo$3$Jyuni is an object column but has 17715 values
-CornerInfo$4$Jyuni is an object column but has 15777 values
+Excepted column CornerInfo$1$Corner
+Excepted column CornerInfo$1$Syukaisu
+Excepted column CornerInfo$1$Jyuni
+Excepted column CornerInfo$2$Corner
+Excepted column CornerInfo$2$Syukaisu
+Excepted column CornerInfo$2$Jyuni
+Excepted column CornerInfo$3$Corner
+Excepted column CornerInfo$3$Syukaisu
+Excepted column CornerInfo$3$Jyuni
+Excepted column CornerInfo$4$Corner
+Excepted column CornerInfo$4$Syukaisu
+Excepted column CornerInfo$4$Jyuni
 crlf only has 1 value
