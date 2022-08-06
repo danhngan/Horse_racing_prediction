@@ -1,5 +1,6 @@
 import pandas as pd
 import numpy as np
+from collections import deque
 
 
 def split_data(df: pd.DataFrame, target_col, drop_columns, select_cols = None, test_size = 0.3):
@@ -81,3 +82,41 @@ def predict_top3_prob(model, X, raceid):
     for group in df_group.groups:
         df_top3.loc[top3_prob(df_group.get_group(group)['Top 3 prob']), 'Top 3'] = True
     return df_top3
+
+class generate_exp():
+    def __init__(self, colname, val = None, k = 0, init_val=0):
+        self.exp_dict = {}
+        self.k = k
+        self.init_val = init_val
+        self.colname = colname
+        self.val = val
+
+    
+    def generate_exp(self, row):
+        if row[self.colname] in self.exp_dict:
+            if self.val is None:
+                self.exp_dict[row[self.colname]][0] += 1
+            else:
+                self.exp_dict[row[self.colname]][0] += self.exp_dict[row[self.colname]][1]
+                self.exp_dict[row[self.colname]][1] = row[self.val]
+        else:
+            # the second element is a temporary variable
+            self.exp_dict[row[self.colname]] = [self.init_val, row[self.val] if self.val is None else 1]
+        return self.exp_dict[row[self.colname]][0]
+    
+
+    def generate_last_k_exp(self, row):
+        if self.val is None:
+            raise ValueError('This function does nothing without val!')
+
+
+        if row[self.colname] in self.exp_dict:
+
+                self.exp_dict[row[self.colname]][0] += self.exp_dict[row[self.colname]][1][-1] - self.exp_dict[row[self.colname]][1][0]
+                self.exp_dict[row[self.colname]][1].append(row[self.val])
+                self.exp_dict[row[self.colname]][1].popleft()
+                           
+        else:
+            self.exp_dict[row[self.colname]] = [self.init_val, deque([self.init_val/self.k]*self.k).append(row[self.val])]
+
+        return self.exp_dict[row[self.colname]]
