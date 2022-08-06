@@ -101,7 +101,10 @@ class generate_exp():
                 self.exp_dict[row[self.colname]][1] = row[self.val]
         else:
             # the second element is a temporary variable
-            self.exp_dict[row[self.colname]] = [self.init_val, row[self.val] if self.val is None else 1]
+            if self.val is None:
+                self.exp_dict[row[self.colname]] = [self.init_val, 1]
+            else:
+                self.exp_dict[row[self.colname]] = [self.init_val, row[self.val]]
         return self.exp_dict[row[self.colname]][0]
     
 
