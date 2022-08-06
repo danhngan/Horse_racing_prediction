@@ -120,6 +120,8 @@ class generate_exp():
                 self.exp_dict[row[self.colname]][1].popleft()
                            
         else:
-            self.exp_dict[row[self.colname]] = [self.init_val, deque([self.init_val/self.k]*self.k).append(row[self.val])]
+            temp = deque([self.init_val/self.k]*self.k)
+            temp.append(row[self.val])
+            self.exp_dict[row[self.colname]] = [self.init_val, temp]
 
-        return self.exp_dict[row[self.colname]]
+        return self.exp_dict[row[self.colname]][0]
