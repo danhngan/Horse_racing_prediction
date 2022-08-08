@@ -7,24 +7,26 @@ def split_data(df: pd.DataFrame, target_col, drop_columns, select_cols = None, t
     """
     `X_train, X_test, y_train, y_test, top3_train, top3_test, raceid_train, raceid_test` according to `test_size`
     
-    if `test_size` is float and less than 1, test dataset will have (number of group)*test_size (round down) instances.
+    if `test_size` is float and less than 1, test dataset will have (number of group)*test_size (round down) races.
     
-    if `test_size` is int and less than numbers of groups, test dataset will have test_size instances"""
+    if `test_size` is int and less than `df.shape[0]`, test dataset will have test_size instances"""
     
-    # Group by race id
-    df_group = df.groupby('raceid')
-    
-    # Find separated index
-    n_groups = df_group.ngroups
 
     if isinstance(test_size, float) and test_size < 1:
+            # Group by race id
+        df_group = df.groupby('raceid')
+        
+        # Find separated index
+        n_groups = df_group.ngroups
         n_train_groups = (1-test_size)*n_groups
-    elif isinstance(test_size, int) and test_size < n_groups:
-        n_train_groups = n_groups - test_size
-    group_idx = df_group.ngroup()
-    idx = np.searchsorted(group_idx, n_train_groups, side='left')
-    sep_group_name = df.loc[idx, 'raceid']
-    sep_idx = df_group.groups[sep_group_name][-1]
+        group_idx = df_group.ngroup()
+        idx = np.searchsorted(group_idx, n_train_groups, side='left')
+        sep_group_name = df.loc[idx, 'raceid']
+        sep_idx = df_group.groups[sep_group_name][-1]
+
+    elif isinstance(test_size, int) and test_size < df.shape[0]:
+        sep_idx = df.shape[0] - test_size - 1
+    
 
     # Split data
     raceid = df['raceid']
@@ -94,18 +96,15 @@ class generate_exp():
     
     def generate_exp(self, row):
         if row[self.colname] in self.exp_dict:
+            ans = self.exp_dict[row[self.colname]]
             if self.val is None:
-                self.exp_dict[row[self.colname]][0] += 1
+                self.exp_dict[row[self.colname]] += 1
             else:
-                self.exp_dict[row[self.colname]][0] += self.exp_dict[row[self.colname]][1]
-                self.exp_dict[row[self.colname]][1] = row[self.val]
+                self.exp_dict[row[self.colname]] += row[self.val]
         else:
-            # the second element is a temporary variable
-            if self.val is None:
-                self.exp_dict[row[self.colname]] = [self.init_val, 1]
-            else:
-                self.exp_dict[row[self.colname]] = [self.init_val, row[self.val]]
-        return self.exp_dict[row[self.colname]][0]
+            self.exp_dict[row[self.colname]] = self.init_val
+            ans = self.init_val
+        return ans
     
 
     def generate_last_k_exp(self, row):
