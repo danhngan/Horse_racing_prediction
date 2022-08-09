@@ -1,3 +1,4 @@
 
 *.pickle
 data/historical_data/integrated_data.csv
+*.csv
