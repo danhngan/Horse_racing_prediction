@@ -86,7 +86,7 @@ def predict_top3_prob(model, X, raceid):
     return df_top3
 
 class generate_exp():
-    def __init__(self, colname, val = None, k = 0, init_val=0):
+    def __init__(self, colname, val = None, k = 0, init_val=0.):
         self.exp_dict = {}
         self.k = k
         self.init_val = init_val
@@ -98,29 +98,85 @@ class generate_exp():
         if row[self.colname] in self.exp_dict:
             ans = self.exp_dict[row[self.colname]]
             if self.val is None:
-                self.exp_dict[row[self.colname]] += 1
+                self.exp_dict[row[self.colname]] += 1.
             else:
-                self.exp_dict[row[self.colname]] += row[self.val]
+                self.exp_dict[row[self.colname]] += float(row[self.val])
         else:
-            self.exp_dict[row[self.colname]] = self.init_val
+            if self.val is None:
+                self.exp_dict[row[self.colname]] = 1.
+                ans = self.init_val
+            else:
+                self.exp_dict[row[self.colname]] = float(row[self.val])
+                ans = self.init_val
+        return ans
+    
+
+    def generate_strike(self, row):
+        if self.val is None:
+            raise ValueError('This function does nothing without val!')
+        
+        if row[self.colname] in self.exp_dict:
+            ans = self.exp_dict[row[self.colname]]
+            if bool(row[self.val]):
+                self.exp_dict[row[self.colname]] += 1.
+            else:
+                self.exp_dict[row[self.colname]] = 0.
+        else:
+            self.exp_dict[row[self.colname]] = float(row[self.val])
             ans = self.init_val
         return ans
     
 
     def generate_last_k_exp(self, row):
+        
         if self.val is None:
             raise ValueError('This function does nothing without val!')
 
+        new_key = row[self.colname]
+        new_val = float(row[self.val])
 
-        if row[self.colname] in self.exp_dict:
+        if new_key in self.exp_dict:
 
-                self.exp_dict[row[self.colname]][0] += self.exp_dict[row[self.colname]][1][-1] - self.exp_dict[row[self.colname]][1][0]
-                self.exp_dict[row[self.colname]][1].append(row[self.val])
-                self.exp_dict[row[self.colname]][1].popleft()
+            self.exp_dict[new_key][0] += self.exp_dict[new_key][1][-1] - self.exp_dict[new_key][1][0]
+            self.exp_dict[new_key][1].append(new_val)
+            self.exp_dict[new_key][1].popleft()
                            
         else:
             temp = deque([self.init_val/self.k]*self.k)
-            temp.append(row[self.val])
-            self.exp_dict[row[self.colname]] = [self.init_val, temp]
+            temp.append(new_val)
+            self.exp_dict[new_key] = [self.init_val, temp]
 
-        return self.exp_dict[row[self.colname]][0]
+        return self.exp_dict[new_key][0]
+    
+    def generate_last_k_var(self, row):
+        """
+        """
+        if self.val is None:
+            raise ValueError('This function does nothing without val!')
+
+        self.var_exp = {}
+
+        new_key = row[self.colname]
+        new_val = float(row[self.val])
+        if  new_key in self.exp_dict:
+
+            pvar = self.var_exp[new_key][-1]
+            pmean = self.exp_dict[new_key][0]/self.k
+            pe2 = pvar + pmean**2
+
+            self.exp_dict[new_key][0] += self.exp_dict[new_key][1][-1] - self.exp_dict[new_key][1][0]
+            
+            nmean = self.exp_dict[new_key][0]/self.k
+            ne2 = pe2 + ((self.exp_dict[new_key][1][-1]/self.k)**2 - (self.exp_dict[new_key][1][0]/self.k)**2)/self.k
+            self.var_exp[new_key].append(ne2 - nmean**2)
+
+            self.exp_dict[new_key][1].append(new_val)
+            self.exp_dict[new_key][1].popleft()
+                           
+        else:
+            temp = deque([self.init_val/self.k]*self.k)
+            temp.append(new_val)
+            self.exp_dict[new_key] = [self.init_val, temp]
+            self.var_exp[new_key] = [0]
+
+        return self.exp_dict[new_key][0], self.var_exp[new_key]
