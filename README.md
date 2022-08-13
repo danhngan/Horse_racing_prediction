@@ -17,19 +17,18 @@
 **Kết quả mong muốn:** `>=49.3%`
 
 Sẽ có một số cách tiếp cận sau:
-1. Dự đoán khả năng dàng top 1 của tất cả các con ngựa trong đua và chọn ra 3 con có khả năng cao nhất.
-2. Dự đoán trực tiếp khả năng vào top 3 (có thể chọn top n) của tất cả các con ngựa trong cuộc đua và chọn ra 3 con có khả năng cao nhất.
-3. Dự đoán thời gian chạy của mỗi con ngựa trong cuộc đua và chọn ra 3 con nhanh nhất.
+1. Dự đoán trực tiếp khả năng vào top 3 (có thể chọn top n) của tất cả các con ngựa trong cuộc đua và chọn ra 3 con có khả năng cao nhất.
+2. Dự đoán thời gian chạy, hoặc xác suất của mỗi con ngựa trong cuộc đua và chọn ra 3 con tốt nhất.
 
 Mỗi phương pháp có thể có một số ưu nhược điểm nhất định:
-1. Phương pháp 1 và 2:
+1. Phương pháp 1:
    1. Ưu điểm: Trực tiếp dự đoán được top các con ngựa, không cần post-processing. Thể hiện được tính cạnh tranh giữa các con ngựa.
    2. Nhược điểm: Khó khăn trong pre-processing khi số lượng ngựa trong một cuộc đua không cố định, các đặc tính chung giữa các con ngựa trong cuộc đua trùng lặp như điều kiện thời tiết, đường đua. Framework như sklearn không hỗ trợ thuộc tính là ma trận 2 chiều, việc flatten dữ liệu có thể  làm cho đầu vào có quá nhiều thuộc tính.
-2. Phương pháp 3:
+2. Phương pháp 2:
    1. Ưu điểm: Preprocessing dễ dàng hơn khi chỉ cần quan tâm đến các yếu tố ảnh hưởng cho từng con ngựa một, đầu vào cho mỗi điểm dữ liệu chỉ là một vector thể hiện cho 1 con ngựa trong cuộc đua.
    2. Nhược điểm: Không thể hiện tính cạnh tranh giữa các con ngựa trong cuộc đua, cần post-proccessing để đưa ra dự đoán cuối cùng
 
-Ở đây, đầu tiên tôi sẽ chọn cách tiếp cận 3, sau đó sẽ thử nghiệm tiếp tục với cách tiếp cận 1 và 2
+Ở đây, đầu tiên tôi sẽ chọn cách tiếp cận 2, sau đó sẽ thử nghiệm tiếp tục với cách tiếp cận 1
 
 Tuy vậy, dù theo cách tiếp cận nào ta cũng cần biết những yếu tố nào ảnh hưởng đến kết quả của một con ngựa trong cuộc đua:
 
