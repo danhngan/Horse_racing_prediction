@@ -3,7 +3,7 @@ import numpy as np
 from collections import deque
 
 
-def split_data(df: pd.DataFrame, target_col, drop_columns, select_cols = None, test_size = 0.3):
+def split_data(X, y, raceid: pd.Series, top3:pd.Series, drop_columns, select_cols = None, test_size = 0.3):
     """
     `X_train, X_test, y_train, y_test, top3_train, top3_test, raceid_train, raceid_test` according to `test_size`
     
@@ -13,39 +13,36 @@ def split_data(df: pd.DataFrame, target_col, drop_columns, select_cols = None, t
     
 
     if isinstance(test_size, float) and test_size < 1:
-            # Group by race id
-        df_group = df.groupby('raceid')
+        # Group by race id
+        race_groups = raceid.groupby(lambda x: raceid[x])
         
         # Find separated index
-        n_groups = df_group.ngroups
+        n_groups = race_groups.ngroups
         n_train_groups = (1-test_size)*n_groups
-        group_idx = df_group.ngroup()
+        group_idx = race_groups.ngroup()
         idx = np.searchsorted(group_idx, n_train_groups, side='left')
-        sep_group_name = df.loc[idx, 'raceid']
-        sep_idx = df_group.groups[sep_group_name][-1]
+        sep_group_name = raceid.iloc[idx]
+        sep_idx = race_groups.groups[sep_group_name][-1]
 
-    elif isinstance(test_size, int) and test_size < df.shape[0]:
-        sep_idx = df.shape[0] - test_size - 1
+    elif isinstance(test_size, int) and test_size < raceid.shape[0]:
+        sep_idx = raceid.shape[0] - test_size - 1
     
 
     # Split data
-    raceid = df['raceid']
-    y = df[target_col]
-    top3 = df['Top 3']
-    X = df.drop([col for col in df.columns if col in drop_columns], axis=1)
+    X = X.reset_index(drop=True).drop([col for col in X.columns if col in drop_columns], axis=1)
     if select_cols is None:
         select_cols = X.columns
     X_train = X.loc[:sep_idx, select_cols]
     X_test = X.loc[sep_idx+1:, select_cols]
 
-    y_train = y[:sep_idx+1]
-    y_test = y[sep_idx+1:]
+    y_train = y.iloc[:sep_idx+1]
+    y_test = y.iloc[sep_idx+1:]
 
-    top3_train = top3[:sep_idx+1]
-    top3_test = top3[sep_idx+1:]
+    top3_train = top3.iloc[:sep_idx+1]
+    top3_test = top3.iloc[sep_idx+1:]
 
-    raceid_train = raceid[:sep_idx+1]
-    raceid_test = raceid[sep_idx+1:]
+    raceid_train = raceid.iloc[:sep_idx+1]
+    raceid_test = raceid.iloc[sep_idx+1:]
 
     return X_train, X_test, y_train, y_test, top3_train, top3_test, raceid_train, raceid_test
 
