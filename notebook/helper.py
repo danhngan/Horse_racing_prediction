@@ -3,7 +3,7 @@ import numpy as np
 from collections import deque
 
 
-def split_data(X, y, raceid: pd.Series, top3:pd.Series, drop_columns, select_cols = None, test_size = 0.3):
+def split_data(X, y, raceid: pd.Series, top3:pd.Series, drop_columns = None, select_cols = None, test_size = 0.3):
     """
     `X_train, X_test, y_train, y_test, top3_train, top3_test, raceid_train, raceid_test` according to `test_size`
     
@@ -29,7 +29,8 @@ def split_data(X, y, raceid: pd.Series, top3:pd.Series, drop_columns, select_col
     
 
     # Split data
-    X = X.reset_index(drop=True).drop([col for col in X.columns if col in drop_columns], axis=1)
+    if drop_columns is not None:
+        X = X.reset_index(drop=True).drop([col for col in X.columns if col in drop_columns], axis=1)
     if select_cols is None:
         select_cols = X.columns
     X_train = X.loc[:sep_idx, select_cols]
