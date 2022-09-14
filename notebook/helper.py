@@ -83,6 +83,9 @@ def predict_top3_prob(model, X, raceid):
         df_top3.loc[top3_prob(df_group.get_group(group)['Top 3 prob']), 'Top 3'] = True
     return df_top3
 
+def top3_accuracy_score(y_true, y_pred):
+    return y_pred[y_true].sum()/y_true.sum()
+
 class generate_exp():
     def __init__(self, colname, val = None, k = 0, beta=0.2, init_val=0.):
         self.exp_dict = {}
