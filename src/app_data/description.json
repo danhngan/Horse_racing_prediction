@@ -1,0 +1,142 @@
+{
+    "SexCD": {
+        "example": 1,
+        "description": {
+            "Type": "Int type",
+            "Valid code": {
+                "Male": 1,
+                "Female": 2,
+                "Castrated male": 3
+            }
+        }
+    },
+    "HinsyuCD": {
+        "example": 1,
+        "description": {
+            "Type": "Int type",
+            "Valid code": {
+                "Thoroughbred": 1,
+                "< 25% Arab blood": 2
+            }
+        }
+    },
+    "TozaiCD": {
+        "example": 1,
+        "description": {
+            "Type": "Int type",
+            "Valid code": {
+                "Miura Training Center": 1,
+                "Ritto Training Center": 2,
+                "From the region": 3,
+                "From abroad": 4
+            }
+        }
+    },
+    "tracktype": {
+        "example": "Turf",
+        "description": {
+            "Type": "String type",
+            "Valid code": [
+                "Dirt",
+                "Turf",
+                "Jump"
+            ]
+        }
+    },
+    "raceid": {
+        "example": {
+            "raceid": {
+                "date": "2008-01-05",
+                "race": "01",
+                "trackcd": "06"
+            }
+        },
+        "description": {
+            "raceid": {
+                "date": "yyyy-mm-dd",
+                "race": "race num, format: 2 number",
+                "trackcd": "track code"
+            }
+        }
+    },
+    "horses": {
+        "example": {
+            "horses": [
+                "2014106104",
+                "2015101377",
+                "2015104739",
+                "2015101987",
+                "2015104220",
+                "2014100976",
+                "2015104880",
+                "2015102979",
+                "2014105275",
+                "2015101353",
+                "2012104696",
+                "2014103669",
+                "2013102631",
+                "2014102088",
+                "2014106395"
+            ]
+        }
+    },
+    "jockeys": {
+        "example": {
+            "jockeys": [
+                "1001",
+                "1002",
+                "1003",
+                "1004",
+                "1005",
+                "1006",
+                "1007",
+                "1008",
+                "1009",
+                "1010",
+                "1011",
+                "1012",
+                "1013",
+                "1014",
+                "1015"
+            ]
+        }
+    },
+    "horseinfos": {
+        "example": {
+            "horseinfos": [
+                {
+                    "KettoNum": "1996110169",
+                    "horse_n_races": 2.0,
+                    "Barei": 12,
+                    "BaTaijyu": 456.0,
+                    "SexCD": 1,
+                    "HinsyuCD": 1
+                }
+            ]
+        },
+        "description": {
+            "horseinfo": [
+                {
+                    "KettoNum": "string",
+                    "ChokyosiCode": "string",
+                    "BanusiCode": "string",
+                    "horse_n_races": "float",
+                    "Barei": "float",
+                    "BaTaijyu": "float from 2 to 998",
+                    "SexCD": "int in [1,2,3]",
+                    "HinsyuCD": "int in [1,2]",
+                    "horse_top1": "number of horse's top 1 award",
+                    "horse_top3": "number of horse's top 1 award",
+                    "horse_beta=0.3": "moving average horse's fixed position in previous races with beta = 0.3",
+                    "horse_beta=0.5": "beta = 0.5",
+                    "horse_beta=1.": "beta = 1.",
+                    "horse_beta=0.3_top1": "moving average horse's top 1 award in previous races with beta = 0.3",
+                    "horse_beta=0.2_top5": "top 5 award with beta = 0.2",
+                    "horse_beta=0.3_speed": "moving average horse's fixed speed in previous races with beta = 0.3",
+                    "horse_beta=0.5_speed": "fixed speed with beta = 0.5",
+                    "horse_top3_rate": "horse's top 3 rate"
+                }
+            ]
+        }
+    }
+}
