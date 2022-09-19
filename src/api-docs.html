@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>Horse Race predictor - Doc</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="https://fastapi.tiangolo.com/img/favicon.png">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+    <style data-styled="" data-styled-version="4.4.1"></style>
+</head>
+<body>
+    <div id="redoc-container"></div>
+    <script src="https://cdn.jsdelivr.net/npm/redoc/bundles/redoc.standalone.js"> </script>
+    <script>
+        var spec = {"openapi": "3.0.2", "info": {"title": "FastAPI", "description": "\ndescriptions: descriptions of predictor's parameters with examples\n\npredictor: predict top 3 horse of race with provided input", "version": "0.1.0"}, "paths": {"/": {"get": {"summary": "Root Page", "operationId": "root_page__get", "responses": {"200": {"description": "Successful Response", "content": {"application/json": {"schema": {}}}}}}}, "/descriptions/{code}": {"get": {"summary": "Description", "description": "Descriptions of predictor's parameters with examples\n\nValid codes: SexCD, HinsyuCD, TozaiCD, raceid, horses, jockeys, horseinfos, tracktype", "operationId": "description_descriptions__code__get", "parameters": [{"required": true, "schema": {"title": "Code", "type": "string"}, "name": "code", "in": "path"}], "responses": {"200": {"description": "Successful Response", "content": {"application/json": {"schema": {}}}}, "422": {"description": "Validation Error", "content": {"application/json": {"schema": {"$ref": "#/components/schemas/HTTPValidationError"}}}}}}}, "/predictor/": {"post": {"summary": "Prediction", "description": "If raceid is provided, then the predictions (and the results for the histotical races) will be returned,\n\nOtherwise, horses and jockeys (with the same lengths) must be provided.\n\nNote: tracktype is optional, default: Turf\n\nhorseinfos is optional\n\nGo to /descriptions/{code} for descriptions and examples", "operationId": "prediction_predictor__post", "parameters": [{"required": false, "schema": {"title": "Tracktype", "type": "string", "default": "Turf"}, "name": "tracktype", "in": "query"}], "requestBody": {"content": {"application/json": {"schema": {"$ref": "#/components/schemas/Body_prediction_predictor__post"}}}}, "responses": {"200": {"description": "Successful Response", "content": {"application/json": {"schema": {}}}}, "422": {"description": "Validation Error", "content": {"application/json": {"schema": {"$ref": "#/components/schemas/HTTPValidationError"}}}}}}}}, "components": {"schemas": {"Body_prediction_predictor__post": {"title": "Body_prediction_predictor__post", "type": "object", "properties": {"raceid": {"title": "Raceid", "type": "object"}, "horses": {"title": "Horses", "type": "array", "items": {"type": "string"}}, "jockeys": {"title": "Jockeys", "type": "array", "items": {"type": "string"}}, "horseinfos": {"title": "Horseinfos", "type": "array", "items": {}}}}, "HTTPValidationError": {"title": "HTTPValidationError", "type": "object", "properties": {"detail": {"title": "Detail", "type": "array", "items": {"$ref": "#/components/schemas/ValidationError"}}}}, "ValidationError": {"title": "ValidationError", "required": ["loc", "msg", "type"], "type": "object", "properties": {"loc": {"title": "Location", "type": "array", "items": {"anyOf": [{"type": "string"}, {"type": "integer"}]}}, "msg": {"title": "Message", "type": "string"}, "type": {"title": "Error Type", "type": "string"}}}}}};
+        Redoc.init(spec, {}, document.getElementById("redoc-container"));
+    </script>
+</body>
+</html>
+
