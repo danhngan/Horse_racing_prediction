@@ -72,10 +72,42 @@ def predict_top3_time(model, X, raceid):
 def predict_top3_prob(model, X, raceid):
     """return a DataFrame that indicates the top 3 of race according to predictive probabilities"""
     assert len(X) == len(raceid), 'Length of X is not equal to length of raceid'
+    # models predict
     if hasattr(model, 'predict_proba'):
         y_pred = model.predict_proba(X)[:,1]
     else:
         y_pred = model.predict(X).flatten()
+    
+    # race predictions
+    df_top3 = pd.DataFrame({'raceid': raceid, 'Top 3 prob': y_pred})
+    df_top3['Top 3'] = False
+    df_group = df_top3.groupby('raceid')
+    for group in df_group.groups:
+        df_top3.loc[top3_prob(df_group.get_group(group)['Top 3 prob']), 'Top 3'] = True
+    return df_top3
+
+def predict_top3_prob_multimodels(models:list, Xs, raceid):
+    """return a DataFrame that indicates the top 3 of race according to predictive probabilities"""
+    assert len(models) > 0, "There's no model"
+    if isinstance(Xs, list):
+        for X in Xs:
+            assert len(X) == len(raceid), 'Length of X is not equal to length of raceid'
+    else:
+        assert len(Xs) == len(raceid), 'Length of X is not equal to length of raceid'
+    # models predict    
+    y_pred = []
+    for i in range(len(models)):
+        if isinstance(Xs, list):
+            X = Xs[i]
+        else:
+            X = Xs
+        if hasattr(models[i], 'predict_proba'):
+            y_pred.append(models[i].predict_proba(X)[:,1])
+        else:
+            y_pred.append(models[i].predict(X).flatten())
+    y_pred = sum(y_pred)/(i+1)
+    
+    # race predictions
     df_top3 = pd.DataFrame({'raceid': raceid, 'Top 3 prob': y_pred})
     df_top3['Top 3'] = False
     df_group = df_top3.groupby('raceid')
