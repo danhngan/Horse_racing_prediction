@@ -1,0 +1,438 @@
+[
+    {
+        "code": "01",
+        "name": "SAPPORO"
+    },
+    {
+        "code": "02",
+        "name": "HAKODATE"
+    },
+    {
+        "code": "03",
+        "name": "FUKUSHIMA"
+    },
+    {
+        "code": "04",
+        "name": "NIIGATA"
+    },
+    {
+        "code": "05",
+        "name": "TOKYO"
+    },
+    {
+        "code": "06",
+        "name": "NAKAYAMA"
+    },
+    {
+        "code": "07",
+        "name": "CHUKYO"
+    },
+    {
+        "code": "08",
+        "name": "KYOTO"
+    },
+    {
+        "code": "09",
+        "name": "HANSHIN"
+    },
+    {
+        "code": "10",
+        "name": "KOKURA"
+    },
+    {
+        "code": "30",
+        "name": "MONBETSU"
+    },
+    {
+        "code": "31",
+        "name": "KITAMI"
+    },
+    {
+        "code": "32",
+        "name": "IWAMIZAWA"
+    },
+    {
+        "code": "33",
+        "name": "OBIHIRO"
+    },
+    {
+        "code": "34",
+        "name": "ASAHIKAWA"
+    },
+    {
+        "code": "35",
+        "name": "MORIOKA"
+    },
+    {
+        "code": "36",
+        "name": "MIZUSAWA"
+    },
+    {
+        "code": "37",
+        "name": "KAMINOYAMA"
+    },
+    {
+        "code": "38",
+        "name": "SANJYO"
+    },
+    {
+        "code": "39",
+        "name": "ASHIKAGA"
+    },
+    {
+        "code": "40",
+        "name": "UTSUNOMIYA"
+    },
+    {
+        "code": "41",
+        "name": "TAKASAKI"
+    },
+    {
+        "code": "42",
+        "name": "URAWA"
+    },
+    {
+        "code": "43",
+        "name": "FUNABASHI"
+    },
+    {
+        "code": "44",
+        "name": "OHI"
+    },
+    {
+        "code": "45",
+        "name": "KAWASAKI"
+    },
+    {
+        "code": "46",
+        "name": "KANAZAWA"
+    },
+    {
+        "code": "47",
+        "name": "KASAMATSU"
+    },
+    {
+        "code": "48",
+        "name": "NAGOYA"
+    },
+    {
+        "code": "49",
+        "name": "KIMIIDERA"
+    },
+    {
+        "code": "50",
+        "name": "SONODA"
+    },
+    {
+        "code": "51",
+        "name": "HIMEJI"
+    },
+    {
+        "code": "52",
+        "name": "MASUDA"
+    },
+    {
+        "code": "53",
+        "name": "FUKUYAMA"
+    },
+    {
+        "code": "54",
+        "name": "KOCHI"
+    },
+    {
+        "code": "55",
+        "name": "SAGA"
+    },
+    {
+        "code": "56",
+        "name": "ARAO"
+    },
+    {
+        "code": "57",
+        "name": "NAKATSU"
+    },
+    {
+        "code": "58",
+        "name": "SAPPORO(NAR)"
+    },
+    {
+        "code": "59",
+        "name": "HAKODATE(NAR)"
+    },
+    {
+        "code": "60",
+        "name": "NIIGATA(NAR)"
+    },
+    {
+        "code": "61",
+        "name": "CHUKYO(NAR)"
+    },
+    {
+        "code": "A0",
+        "name": ""
+    },
+    {
+        "code": "A2",
+        "name": "Japan"
+    },
+    {
+        "code": "A4",
+        "name": "United States of America"
+    },
+    {
+        "code": "A6",
+        "name": "Great Britain"
+    },
+    {
+        "code": "A8",
+        "name": "France"
+    },
+    {
+        "code": "B0",
+        "name": "India"
+    },
+    {
+        "code": "B2",
+        "name": "Ireland"
+    },
+    {
+        "code": "B4",
+        "name": "New Zealand"
+    },
+    {
+        "code": "B6",
+        "name": "Australia"
+    },
+    {
+        "code": "B8",
+        "name": "Canada"
+    },
+    {
+        "code": "C0",
+        "name": "Italy"
+    },
+    {
+        "code": "C2",
+        "name": "Germany"
+    },
+    {
+        "code": "C5",
+        "name": "Oman"
+    },
+    {
+        "code": "C6",
+        "name": "Iraq"
+    },
+    {
+        "code": "C7",
+        "name": "United Arab Emirates"
+    },
+    {
+        "code": "C8",
+        "name": "Syrian"
+    },
+    {
+        "code": "D0",
+        "name": "Sweden"
+    },
+    {
+        "code": "D2",
+        "name": "Hungary"
+    },
+    {
+        "code": "D4",
+        "name": "Portugal"
+    },
+    {
+        "code": "D6",
+        "name": "Russia"
+    },
+    {
+        "code": "D8",
+        "name": "Uruguay"
+    },
+    {
+        "code": "E0",
+        "name": "Peru"
+    },
+    {
+        "code": "E2",
+        "name": "Argentina"
+    },
+    {
+        "code": "E4",
+        "name": "Brazil"
+    },
+    {
+        "code": "E6",
+        "name": "Belgium"
+    },
+    {
+        "code": "E8",
+        "name": "Turkey"
+    },
+    {
+        "code": "F0",
+        "name": "Korea"
+    },
+    {
+        "code": "F1",
+        "name": "China"
+    },
+    {
+        "code": "F2",
+        "name": "Chile"
+    },
+    {
+        "code": "F4",
+        "name": ""
+    },
+    {
+        "code": "F6",
+        "name": ""
+    },
+    {
+        "code": "F8",
+        "name": "Panama"
+    },
+    {
+        "code": "G0",
+        "name": "Hong Kong"
+    },
+    {
+        "code": "G2",
+        "name": "Spain"
+    },
+    {
+        "code": "G4",
+        "name": ""
+    },
+    {
+        "code": "G6",
+        "name": ""
+    },
+    {
+        "code": "G8",
+        "name": ""
+    },
+    {
+        "code": "H0",
+        "name": "West Germany"
+    },
+    {
+        "code": "H2",
+        "name": "South Africa"
+    },
+    {
+        "code": "H4",
+        "name": "Switzerland"
+    },
+    {
+        "code": "H6",
+        "name": "Monaco"
+    },
+    {
+        "code": "H8",
+        "name": "Philippines"
+    },
+    {
+        "code": "I0",
+        "name": "Puerto Rico"
+    },
+    {
+        "code": "I2",
+        "name": "Colombia"
+    },
+    {
+        "code": "I4",
+        "name": "Czechoslovakia"
+    },
+    {
+        "code": "I6",
+        "name": "Czech Republic"
+    },
+    {
+        "code": "I8",
+        "name": "Slovakia"
+    },
+    {
+        "code": "J0",
+        "name": "Ecuador"
+    },
+    {
+        "code": "J2",
+        "name": "Greece"
+    },
+    {
+        "code": "J4",
+        "name": "Malaysia"
+    },
+    {
+        "code": "J6",
+        "name": "Mexico"
+    },
+    {
+        "code": "J8",
+        "name": "Morocco"
+    },
+    {
+        "code": "K0",
+        "name": "Pakistan"
+    },
+    {
+        "code": "K2",
+        "name": "Poland"
+    },
+    {
+        "code": "K4",
+        "name": "Paraguay"
+    },
+    {
+        "code": "K6",
+        "name": "Saudi Arabia"
+    },
+    {
+        "code": "K8",
+        "name": "Cyprus"
+    },
+    {
+        "code": "L0",
+        "name": "Thailand"
+    },
+    {
+        "code": "L2",
+        "name": "Ukraine"
+    },
+    {
+        "code": "L4",
+        "name": "Venezuela"
+    },
+    {
+        "code": "L6",
+        "name": "Yugoslavia"
+    },
+    {
+        "code": "L8",
+        "name": "Denmark"
+    },
+    {
+        "code": "M0",
+        "name": "Singapore"
+    },
+    {
+        "code": "M2",
+        "name": "Macau"
+    },
+    {
+        "code": "M4",
+        "name": "Austria"
+    },
+    {
+        "code": "M6",
+        "name": "Jordan"
+    },
+    {
+        "code": "M8",
+        "name": "Qatar"
+    }
+]
